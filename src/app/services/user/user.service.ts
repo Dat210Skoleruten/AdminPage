@@ -11,13 +11,13 @@ export class UserService {
     private afDB: AngularFireDatabase) { }
 
     save(user: firebase.User) {
-      this.afDB.object('/barProfile/' + user.uid).update({
+      this.afDB.object('/user/' + user.uid).update({
         name: user.displayName,
         email: user.email
       });
     }
 
     get(uid: string): FirebaseObjectObservable<AppUser> {
-      return this.afDB.object('/barProfile/' + uid);
+      return this.afDB.object('/user/' + uid);
     }
 }

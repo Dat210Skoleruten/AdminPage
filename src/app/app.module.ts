@@ -1,3 +1,4 @@
+import { UserService } from './services/user/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,12 +13,14 @@ import { RouterModule } from '@angular/router';
 
 import { AuthService } from './services/auth/auth.service';
 import { environment } from '../environments/environment';
+import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BsNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { environment } from '../environments/environment';
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
