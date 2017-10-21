@@ -12,11 +12,10 @@ import { AppUser } from '../../models/app-user';
 export class AuthService {
   user$: Observable<firebase.User>;
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private route: ActivatedRoute,
-    private userService: UserService,
-    private router: Router) {
+  constructor(private afAuth: AngularFireAuth,
+              private route: ActivatedRoute,
+              private userService: UserService,
+              private router: Router) {
     this.user$ = afAuth.authState;
   }
 
@@ -34,10 +33,10 @@ export class AuthService {
 
   get appUser$(): Observable<AppUser> {
     return this.user$
-    .switchMap(user => {
-      if(user) return this.userService.get(user.uid)
+      .switchMap(user => {
+        if (user) return this.userService.get(user.uid)
 
-      return Observable.of(null);
-    });
+        return Observable.of(null);
+      });
   }
 }
