@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
-    let kommuner$ = await this.kommuneService.getAll();
+    const kommuner$ = await this.kommuneService.getAll();
     this.kommunerSubscription = kommuner$
       .subscribe(kommuner => this.filteredKommuner = this.kommuner = kommuner);
   }

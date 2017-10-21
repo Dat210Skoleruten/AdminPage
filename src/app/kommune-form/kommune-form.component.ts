@@ -17,19 +17,27 @@ export class KommuneFormComponent {
     private route: ActivatedRoute,
     private kommuneService: KommuneService) {
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) this.kommuneService.get(this.id).take(1)
-      .subscribe(k => this.kommune = k);
+
+    if (this.id) {
+      this.kommuneService.get(this.id).take(1)
+        .subscribe(k => this.kommune = k);
+    }
   }
 
   save(kommune) {
-    if (this.id) this.kommuneService.update(this.id, kommune);
-    else this.kommuneService.create(kommune);
+    if (this.id) {
+      this.kommuneService.update(this.id, kommune);
+    } else {
+      this.kommuneService.create(kommune);
+    }
 
     this.router.navigate(['/']);
   }
 
   delete() {
-    if (!confirm('Sikker?')) return;
+    if (!confirm('YAH SURE!?')) {
+      return;
+    }
 
     this.kommuneService.delete(this.id);
     this.router.navigate(['/']);

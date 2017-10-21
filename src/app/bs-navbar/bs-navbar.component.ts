@@ -6,7 +6,7 @@ import * as firebase from 'firebase';
 import { AuthService } from '../services/auth/auth.service';
 
 @Component({
-  selector: 'bs-navbar',
+  selector: 'app-bs-navbar',
   templateUrl: './bs-navbar.component.html',
   styleUrls: ['./bs-navbar.component.css']
 })

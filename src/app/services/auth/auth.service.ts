@@ -13,14 +13,14 @@ export class AuthService {
   user$: Observable<firebase.User>;
 
   constructor(private afAuth: AngularFireAuth,
-              private route: ActivatedRoute,
-              private userService: UserService,
-              private router: Router) {
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private router: Router) {
     this.user$ = afAuth.authState;
   }
 
   loginWithGoogle() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
 
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
@@ -34,7 +34,9 @@ export class AuthService {
   get appUser$(): Observable<AppUser> {
     return this.user$
       .switchMap(user => {
-        if (user) return this.userService.get(user.uid)
+        if (user) {
+          return this.userService.get(user.uid);
+        }
 
         return Observable.of(null);
       });
