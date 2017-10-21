@@ -9,23 +9,23 @@ export class KommuneService {
   }
 
   getAll() {
-    return this.afDB.list(``);
+    return this.afDB.list(`/`);
   }
 
   get(kommuneId) {
-    return this.afDB.object(`` + kommuneId);
+    return this.afDB.object(`/` + kommuneId);
   }
 
   create(kommune) {
-    return this.afDB.list(``).push(kommune);
+    return this.afDB.list(`/`).push(kommune);
   }
 
   update(kommuneId, kommune) {
-    return this.afDB.object(`` + kommuneId).update(kommune);
+    return this.afDB.object(`/` + kommuneId).update(kommune);
   }
 
   delete(kommuneId) {
-    return this.afDB.object(`` + kommuneId).remove();
+    return this.afDB.object(`/` + kommuneId).remove();
   }
 
 }

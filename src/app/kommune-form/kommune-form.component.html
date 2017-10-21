@@ -1,39 +1,39 @@
 <p>
-    <a routerLink="" class="btn btn-dark">Go Back</a>
+    <a routerLink="/" class="btn btn-dark">Go Back</a>
 </p>
 
-<form #f="ngForm" (ngSubmit)="save(f.value)">
+<form #k="ngForm" (ngSubmit)="save(k.value)">
   <div class="form-group">
     <label for="name">Name</label>
-    <input #name="ngModel" [(ngModel)]="product.name" name="name" id="name" type="text" class="form-control" required>
+    <input #name="ngModel" [(ngModel)]="kommune.name" name="name" id="name" type="text" class="form-control" required>
     <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
       Name is required.
     </div>
   </div>
 
   <div class="form-group">
-      <label for="name">Fylke</label>
-      <input #name="ngModel" [(ngModel)]="product.name" name="name" id="name" type="text" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      <label for="fylke">Fylke</label>
+      <input #fylke="ngModel" [(ngModel)]="kommune.fylke" name="fylke" id="fylke" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="fylke.touched && fylke.invalid">
         Fylke is required.
       </div>
     </div>
 
     <div class="form-group">
-        <label for="name">Skoler</label>
-        <input #name="ngModel" [(ngModel)]="product.name" name="name" id="name" type="text" class="form-control" required>
-        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <label for="skoler">Skoler</label>
+        <input #skoler="ngModel" [(ngModel)]="kommune.skoler" name="skoler" id="skoler" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="skoler.touched && skoler.invalid">
           Skoler is required.
         </div>
       </div>
 
       <div class="form-group">
-          <label for="name">Skoleruter</label>
-          <input #name="ngModel" [(ngModel)]="product.name" name="name" id="name" type="text" class="form-control" required>
-          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <label for="skoleruter">Skoleruter</label>
+          <input #skoleruter="ngModel" [(ngModel)]="kommune.skoleruter" name="skoleruter" id="skoleruter" type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="skoleruter.touched && skoleruter.invalid">
             Skoleruter is required.
           </div>
         </div>
-  <button class="btn btn-warning">Save Product</button>
-  <button (click)="delete()" type="button" class="btn btn-outline-danger" *ngIf="product.$key">Delete</button>
+  <button class="btn btn-dark">Save Kommune</button>
+  <button (click)="delete()" type="button" class="btn btn-danger" *ngIf="kommune.$key">Delete</button>
 </form>

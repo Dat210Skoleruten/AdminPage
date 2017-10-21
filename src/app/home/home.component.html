@@ -26,8 +26,8 @@
             <tr *ngFor="let k of filteredKommuner">
                 <td>{{ k.name }}</td>
                 <td>{{ k.fylke }}</td>
-                <td>{{ k.skoler }}</td>
-                <td>{{ k.skoleruter }}</td>
+                <td><a href="{{ k.skoler }}">Link</a></td>
+                <td><a href="{{ k.skoleruter }}">Link</a></td>
                 <td>
                     <a [routerLink]="['/kommuner/', k.$key]">Edit</a>
                 </td>
