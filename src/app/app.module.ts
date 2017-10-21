@@ -15,13 +15,15 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { AuthGuard } from './auth-guard/auth-guard.service';
+import { KommuneFormComponent } from './kommune-form/kommune-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    BsNavbarComponent
+    BsNavbarComponent,
+    KommuneFormComponent
   ],
   imports: [
     BrowserModule,
