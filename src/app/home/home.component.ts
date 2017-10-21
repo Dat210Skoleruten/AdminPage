@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   filter(query: string) {
-    console.log(query);
     this.filteredKommuner = (query) ?
       this.kommuner.filter(k => k.name.toLowerCase().includes(query.toLowerCase())) :
       this.kommuner;
