@@ -12,14 +12,15 @@
 </p>
 
 <div style="overflow-x:auto;">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered text-center">
         <thead>
             <tr>
                 <th>Kommune</th>
                 <th>Fylke</th>
                 <th>Skoler</th>
                 <th>Skoleruter</th>
-                <th></th>
+                <th>Active</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                 <td>{{ k.fylke }}</td>
                 <td><a href="{{ k.skoler }}">Link</a></td>
                 <td><a href="{{ k.skoleruter }}">Link</a></td>
+                <td><input type="checkbox" value="k.$key" checked="checked"></td>
                 <td>
                     <a [routerLink]="['/kommuner/', k.$key]">Edit</a>
                 </td>
