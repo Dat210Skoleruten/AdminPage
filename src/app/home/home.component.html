@@ -19,8 +19,9 @@
                 <th>Fylke</th>
                 <th>Skoler</th>
                 <th>Skoleruter</th>
+                <th>År</th>
                 <th>Active</th>
-                <th>Edit</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,9 +30,10 @@
                 <td>{{ k.fylke }}</td>
                 <td><a href="{{ k.skoler }}">Link</a></td>
                 <td><a href="{{ k.skoleruter }}">Link</a></td>
+                <td>{{ k.year }}</td>
                 <td><input type="checkbox" value="k.$key" checked="checked"></td>
                 <td>
-                    <a [routerLink]="['/kommuner/', k.$key]">Edit</a>
+                    <a [routerLink]="['/kommuner/', k.$key]"><span class="glyphicon">&#x270f;</span></a>
                 </td>
             </tr>
         </tbody>

@@ -4,4 +4,6 @@ export interface Kommune {
     fylke: string;
     skoler: string;
     skoleruter: string;
+    year: string;
+    comment: string;
 }
