@@ -9,11 +9,11 @@ export class KommuneService {
   }
 
   getAll() {
-    return this.afDB.list(`/`);
+    return this.afDB.list(``);
   }
 
-  get(productId) {
-    return this.afDB.object(`` + productId);
+  get(kommuneId) {
+    return this.afDB.object(`` + kommuneId);
   }
 
   create(kommune) {

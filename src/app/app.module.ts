@@ -13,11 +13,12 @@ import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { KommuneFormComponent } from './kommune-form/kommune-form.component';
 
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
+import { KommuneService } from './services/kommune/kommune.service';
 import { AuthGuard } from './auth-guard/auth-guard.service';
-import { KommuneFormComponent } from './kommune-form/kommune-form.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +31,20 @@ import { KommuneFormComponent } from './kommune-form/kommune-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    CustomFormsModule,    
+    CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-      { path: 'login', component: LoginComponent },
+      {
+        path: '',
+        component: HomeComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
       {
         path: 'kommuner/new',
         component: KommuneFormComponent,
@@ -52,7 +60,8 @@ import { KommuneFormComponent } from './kommune-form/kommune-form.component';
   providers: [
     AuthService,
     UserService,
-    AuthGuard
+    AuthGuard,
+    KommuneService
   ],
   bootstrap: [AppComponent]
 })
