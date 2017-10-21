@@ -1,37 +1,37 @@
 <div class="row justify-content-between">
-  <div class="col-4">
-      <h1 class="pull-left">Kommuner</h1>
-  </div>
-  <div class="right">
-      <a routerLink="/admin/products/new" class="btn btn-dark">Ny Kommune</a>
-  </div>
+    <div class="col-4">
+        <h1 class="pull-left">Kommuner</h1>
+    </div>
+    <div class="right">
+        <a routerLink="/kommuner/new" class="btn btn-dark">Ny Kommune</a>
+    </div>
 </div>
 
 <p>
-  <input #query type="text" class="form-control" placeholder="Søk etter kommune...">
+    <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Søk etter kommune...">
 </p>
 
 <div style="overflow-x:auto;">
-  <table class="table table-striped table-bordered">
-      <thead>
-          <tr>
-              <th>Kommune</th>
-              <th>Fylke</th>
-              <th>Skoler</th>
-              <th>Skoleruter</th>
-              <th></th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>Stavanger</td>
-              <td>Rogaland</td>
-              <td>Link</td>
-              <td>Link</td>
-              <td>
-                  <a [routerLink]="[]">Edit</a>
-              </td>
-          </tr>
-      </tbody>
-  </table>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Kommune</th>
+                <th>Fylke</th>
+                <th>Skoler</th>
+                <th>Skoleruter</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let k of filteredKommuner">
+                <td>{{ k.name }}</td>
+                <td>{{ k.fylke }}</td>
+                <td>{{ k.skoler }}</td>
+                <td>{{ k.skoleruter }}</td>
+                <td>
+                    <a [routerLink]="['/kommuner/', k.$key]">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
