@@ -13,8 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthService } from './services/auth/auth.service';
-import { AuthGuard } from './guards/auth-guard/auth-guard.service';
 import { UserService } from './services/user/user.service';
+import { AuthGuard } from './auth-guard/auth-guard.service';
 
 @NgModule({
   declarations: [

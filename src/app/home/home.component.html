@@ -1,3 +1,37 @@
+<div class="row justify-content-between">
+  <div class="col-4">
+      <h1 class="pull-left">Kommuner</h1>
+  </div>
+  <div class="right">
+      <a routerLink="/admin/products/new" class="btn btn-dark">Ny Kommune</a>
+  </div>
+</div>
+
 <p>
-  home works!
+  <input #query type="text" class="form-control" placeholder="Søk etter kommune...">
 </p>
+
+<div style="overflow-x:auto;">
+  <table class="table table-striped table-bordered">
+      <thead>
+          <tr>
+              <th>Kommune</th>
+              <th>Fylke</th>
+              <th>Skoler</th>
+              <th>Skoleruter</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Stavanger</td>
+              <td>Rogaland</td>
+              <td>Link</td>
+              <td>Link</td>
+              <td>
+                  <a [routerLink]="[]">Edit</a>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
