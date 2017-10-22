@@ -10,20 +10,34 @@ import { AppUser } from '../../models/app-user';
 
 @Injectable()
 export class AuthService {
-  user$: Observable<firebase.User>;
+  user: Observable<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(
+    private afAuth: AngularFireAuth,
     private route: ActivatedRoute,
     private userService: UserService,
     private router: Router) {
-    this.user$ = afAuth.authState;
+    this.user = afAuth.authState;
   }
 
-  loginWithGoogle() {
-    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    localStorage.setItem('returnUrl', returnUrl);
+  login(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then(value => {
+        console.log('Nice, it worked!');
+      })
+      .catch(err => {
+        console.log('Something went wrong:', err.message);
+      });
+  }
 
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  register(email: string, password: string) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(value => {
+        console.log('Success!', value);
+      })
+      .catch(err => {
+        console.log('Something went wrong:', err.message);
+      });
   }
 
   logout() {
@@ -31,11 +45,8 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  register() {
-  }
-
   get appUser$(): Observable<AppUser> {
-    return this.user$
+    return this.user
       .switchMap(user => {
         if (user) {
           return this.userService.get(user.uid);

@@ -14,7 +14,7 @@ export class AppComponent {
     private auth: AuthService,
     private userService: UserService,
     router: Router) {
-    auth.user$.subscribe(user => {
+    auth.user.subscribe(user => {
       if (!user) {
         return;
       }
