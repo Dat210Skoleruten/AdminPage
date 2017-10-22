@@ -31,6 +31,9 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  register() {
+  }
+
   get appUser$(): Observable<AppUser> {
     return this.user$
       .switchMap(user => {

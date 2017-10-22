@@ -12,4 +12,8 @@ export class LoginComponent {
   login() {
     this.auth.loginWithGoogle();
   }
+
+  register() {
+    this.auth.register();
+  }
 }
