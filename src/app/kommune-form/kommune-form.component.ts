@@ -9,7 +9,7 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./kommune-form.component.css']
 })
 export class KommuneFormComponent {
-  kommune : any;
+  kommune = <any>{};
   id: string;
 
   constructor(
